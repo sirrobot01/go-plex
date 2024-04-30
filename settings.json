@@ -1,0 +1,49 @@
+{
+    "public_url": "https://tester.plex.dev",
+    "plex_email" : "atest@plex.com",
+    "plex_password" : "password",
+    "plex_library_url" : "http://localhost:32400",
+    "plex_library_token" : "plex_token",
+    "plex_partial_refresh" : true,
+    "plex_refresh_sections" : [
+        "5",
+        "1"
+    ],
+    "plex_refresh_delay" : 1,
+    "versions" : [
+        {
+            "name": "Download 720p",
+            "results": 1,
+            "rules" : [
+                "release['languages'] == ['EN']",
+                "bool(regex.search('(EXTENDED|REMASTERED|DIRECTORS|THEATRICAL|UNRATED|UNCUT|CRITERION|ANNIVERSARY|COLLECTORS|LIMITED|SPECIAL|DELUXE|SUPERBIT|RESTORED|REPACK)',release['title'],regex.I))",
+                "release['source'] == 'RARBG'",
+                "release['size']"
+            ],
+            "filters" : {
+                "resolution":"720",
+                "languages": "EN,DE"
+            }
+        },
+        {
+            "name": "Download HD",
+            "results": 1,
+            "rules" : [
+                "release['languages'] == ['EN']",
+                "bool(regex.search('(HDR|Do?Vi?)',release['title'],regex.I))",
+                "bool(regex.search('(EXTENDED|REMASTERED|DIRECTORS|THEATRICAL|UNRATED|UNCUT|CRITERION|ANNIVERSARY|COLLECTORS|LIMITED|SPECIAL|DELUXE|SUPERBIT|RESTORED|REPACK)',release['title'],regex.I))",
+                "release['source'] == 'RARBG'",
+                "release['size']"
+            ],
+            "filters" : {
+                "resolutions":"2160,1080",
+                "languages": "EN,DE"
+            }
+        }
+
+    ],
+    "realdebrid_api_key": "real_debrid_token",
+    "torrentio_manifest": "providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex|qualityfilter=scr,cam",
+    "sorting": ["resolution", "size"]
+    
+}
